@@ -1,0 +1,4 @@
+[core]
+    remote = remote_storage
+['remote "remote_storage"']
+    url = C:\Users\home\Desktop\Artem\repo\tad3\dvc_remote

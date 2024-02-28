@@ -11,6 +11,7 @@ def main(repo_path):
     test_csv_path = repo_path / "data/prepared/test.csv"
     test_data, labels = load_data(test_csv_path)
     model = load(repo_path / "model/model.joblib")
+    print("Данные загружены. Начинается оценка")
     predictions = model.predict(test_data)
     accuracy = accuracy_score(labels, predictions)
     metrics = {"accuracy": accuracy}

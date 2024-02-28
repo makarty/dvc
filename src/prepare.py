@@ -2,13 +2,13 @@ from pathlib import Path
 
 import pandas as pd
 
-FOLDERS_TO_LABELS = {"n03445777": "golf ball", "n03888257": "parachute"}
+FOLDERS_TO_LABELS = {"food": "food", "non_food": "non-food"}
 
 
 def get_files_and_labels(source_path):
     images = []
     labels = []
-    for image_path in source_path.rglob("*/*.JPEG"):
+    for image_path in source_path.rglob("*/*.jpg"):
         filename = image_path.absolute()
         folder = image_path.parent.name
         if folder in FOLDERS_TO_LABELS:
@@ -26,8 +26,8 @@ def save_as_csv(filenames, labels, destination):
 
 def main(repo_path):
     data_path = repo_path / "data"
-    train_path = data_path / "raw/train"
-    test_path = data_path / "raw/val"
+    train_path = data_path / "raw/Food-Non-food/train"
+    test_path = data_path / "raw/Food-Non-food/val"
     train_files, train_labels = get_files_and_labels(train_path)
     test_files, test_labels = get_files_and_labels(test_path)
     prepared = data_path / "prepared"
