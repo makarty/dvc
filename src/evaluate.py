@@ -9,6 +9,7 @@ from train import load_data
 
 def main(repo_path):
     test_csv_path = repo_path / "data/prepared/test.csv"
+    print("Загрузка данных")
     test_data, labels = load_data(test_csv_path)
     model = load(repo_path / "model/model.joblib")
     print("Данные загружены. Начинается оценка")
